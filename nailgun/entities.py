@@ -2872,8 +2872,9 @@ class HostCollection(
     def __init__(self, server_config=None, **kwargs):
         self._fields = {
             'description': entity_fields.StringField(),
-            'host': entity_fields.OneToManyField(Host),
             'max_hosts': entity_fields.IntegerField(),
+            'host': entity_fields.OneToOneField(Host),
+            'total_hosts': entity_fields.IntegerField(),
             'name': entity_fields.StringField(
                 required=True,
                 str_type='alpha',
